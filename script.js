@@ -39,6 +39,9 @@ function checkTheWinner(){
         gameContent.style.display="none";
         if(lastInput==="X")gameResult.innerHTML="Player one wins";
         else gameResult.innerHTML="Player two wins";
+        addEventListener('keypress',reset);
+        document.body.addEventListener('click',reset,true);
+        setTimeout(()=>{window.location.reload()},santaClause.duration*1000);
     },2000)
 }
 function noWinner(){
@@ -53,4 +56,11 @@ function resetInput(){
         gameBox[i].addEventListener("click",theGame);
         }
     },2000)
+}
+function reset(){
+    if(event.keyCode == 13 || event.keyCode == 32){
+        window.location.reload();
+        return;
+    }
+    window.location.reload();
 }
